@@ -5,11 +5,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 
+![Agentic](images/agentic.png)
+
 ## What is Agentic CLI?
 
-<p align="left">
-  <img align="left" src='images/agentic-01.png' alt='agentic cli' height='50%' width='50%' style='float: left; margin-right: 18px;' />
-</p>
 Agentic CLI is an AI-powered development assistant that helps you generate code, documentation, and configurations through natural language descriptions. Unlike other AI coding tools, Agentic CLI emphasizes:
 
 - **Security First**: All AI-generated code runs in a sandbox before review
@@ -17,7 +16,7 @@ Agentic CLI is an AI-powered development assistant that helps you generate code,
 - **Reproducibility**: Structured task templates ensure consistent outputs
 - **Local-First**: Works entirely on your machine with optional cloud features
 
-<div style='clear:both;'></div>
+
 
 ## Quick Start
 
