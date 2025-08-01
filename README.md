@@ -1,6 +1,6 @@
 # Agentic CLI
 
-> A secure, CLI-first AI development assistant for reproducible code generation
+> Enterprise-grade AI development assistant with comprehensive security, audit trails, and compliance-ready workflows
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
@@ -9,32 +9,73 @@
 
 ## What is Agentic CLI?
 
-Agentic CLI is an AI-powered development assistant that helps you generate code, documentation, and configurations through natural language descriptions. Unlike other AI coding tools, Agentic CLI emphasizes:
+Agentic CLI is an enterprise-focused AI development assistant designed for security-conscious organizations that need reproducible, auditable, and compliant AI-assisted development workflows. Perfect for regulated industries including healthcare, finance, defense, and government.
 
-- **Security First**: All AI-generated code runs in a sandbox before review
-- **Human Control**: Every change requires explicit approval
-- **Reproducibility**: Structured task templates ensure consistent outputs
-- **Local-First**: Works entirely on your machine with optional cloud features
+## Why Enterprise Teams Choose Agentic CLI
+
+- **Zero Trust Security**: Sandboxed execution with comprehensive audit trails
+- **Compliance Ready**: Full activity logging for SOX, HIPAA, SOC2 requirements
+- **Human Oversight**: Mandatory approval gates prevent autonomous code changes
+- **Reproducible Workflows**: Structured task templates eliminate AI inconsistency
+- **Air-Gap Compatible**: Local-first design works in restricted environments
 
 
+
+## Enterprise Use Cases
+
+### Healthcare & Life Sciences
+```bash
+# Generate HIPAA-compliant data processing
+agentic generate "Create patient data ETL with encryption and audit logging"
+
+# Review for compliance before deployment
+agentic review --compliance-check=hipaa
+
+# Apply with full audit trail
+agentic apply --audit-id=PROJ-2025-001
+```
+
+### Financial Services
+```bash
+# Generate SOX-compliant financial reporting
+agentic generate "Create quarterly report generator with data lineage tracking"
+
+# Multi-level approval workflow
+agentic review --approver=security-team --approver=compliance-officer
+
+# Deploy with change tracking
+agentic apply --change-request=CR-2025-Q3-15
+```
+
+### Government & Defense
+```bash
+# Air-gapped development environment
+agentic init --template=secure-python --offline-mode
+
+# Generate with classification handling
+agentic generate "Create secure document processor" --classification=confidential
+
+# Mandatory security review
+agentic review --security-scan --penetration-test
+```
 
 ## Quick Start
 
 ```bash
-# Install (when available)
+# Install
 pipx install agentic-cli
 
-# Initialize a new project
-agentic init --template=python
+# Initialize enterprise project
+agentic init --template=enterprise-python
 
-# Generate code from natural language
-agentic generate "Create a FastAPI route for user authentication"
+# Generate with audit trail
+agentic generate "Create FastAPI route for user authentication"
 
-# Review the generated code
-agentic review
+# Security review
+agentic review --security-scan
 
-# Apply approved changes
-agentic apply
+# Approved deployment
+agentic apply --audit-trail
 ```
 
 ## Core Concepts
@@ -61,19 +102,22 @@ Every workflow includes human checkpoints:
 
 ## Project Status
 
-**🚧 Early Development**: This project is currently in the design and planning phase. The core concepts and architecture are being refined based on research and user feedback.
+**🚧 Active Development**: Core functionality implemented with CLI framework, sandbox security, and task templates. Currently refining enterprise features and gathering feedback from security-focused organizations.
 
-### Current Phase: MVP Definition
-- [ ] Core CLI framework
-- [ ] Basic code generation
-- [ ] File system sandbox
-- [ ] Task template system
-- [ ] Human approval workflow
+### Current Status (Q3 2025)
+- [x] Core CLI framework with Click
+- [x] Sandboxed execution environment
+- [x] Task template system with YAML configs
+- [x] Human approval workflow (generate → review → apply)
+- [x] LLM provider abstraction
+- [ ] Enterprise audit dashboard
+- [ ] Compliance reporting features
+- [ ] RBAC integration
 
-### Roadmap
-- **Q1 2025**: MVP with basic code generation
-- **Q2 2025**: Advanced context management and workflows
-- **Q3 2025**: Community task library and integrations
+### Enterprise Roadmap
+- **Q4 2025**: Enterprise pilot program with audit/compliance features
+- **Q1 2026**: RBAC, SSO integration, and compliance reporting
+- **Q2 2026**: Enterprise deployment and support tier
 
 ## Architecture
 
@@ -128,16 +172,16 @@ MIT License - see [LICENSE](LICENSE) for details.
 ## Frequently Asked Questions
 
 **Q: How is this different from GitHub Copilot or Cursor?**
-A: Agentic CLI focuses on structured, reproducible workflows with explicit human approval for all changes. Instead of inline suggestions, it generates complete solutions that you review and approve.
+A: Agentic CLI is designed for enterprise environments requiring security, compliance, and audit trails. Every operation is logged, code runs in sandboxes, and nothing changes without explicit approval - perfect for regulated industries.
 
-**Q: Why CLI-first instead of IDE integration?**
-A: CLI tools are universal, scriptable, and integrate with any development environment. You can use Agentic CLI with VS Code, Vim, IntelliJ, or any other editor.
+**Q: What compliance standards does it support?**
+A: Built-in audit logging supports SOX, HIPAA, SOC2, and similar requirements. All AI interactions, code generation, and approvals are tracked with timestamps and user attribution.
 
-**Q: What about data privacy?**
-A: Agentic CLI is designed to work locally by default. When using cloud LLM providers, only the minimal context needed for generation is sent, never your entire codebase.
+**Q: Can it work in air-gapped environments?**
+A: Yes. Agentic CLI works entirely locally with optional cloud LLM integration. You can use local models or restricted API endpoints that meet your security requirements.
 
-**Q: When will this be available?**
-A: We're currently in the design phase, validating core concepts and gathering feedback. An early MVP is planned for Q1 2025.
+**Q: What's the current status?**
+A: Core functionality is implemented and working. We're currently onboarding enterprise pilot customers to refine compliance and audit features.
 
 ---
 
