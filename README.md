@@ -8,7 +8,7 @@
 ## What is Agentic CLI?
 
 <p align="left">
-  <img src='images/agentic-01.png' alt='agentic cli' height='50%' width='50%' style='float: left; margin-right: 18px;' />
+  <img align="left" src='images/agentic-01.png' alt='agentic cli' height='50%' width='50%' style='float: left; margin-right: 18px;' />
 </p>
 Agentic CLI is an AI-powered development assistant that helps you generate code, documentation, and configurations through natural language descriptions. Unlike other AI coding tools, Agentic CLI emphasizes:
 
