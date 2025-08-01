@@ -1,0 +1,73 @@
+# FastAPI Route Generator
+name: "fastapi_route"
+version: "1.0.0"
+description: "Generate a FastAPI route with proper typing and validation"
+
+inputs:
+  - name: "route_path"
+    type: "string"
+    required: true
+    description: "API endpoint path (e.g., /users/{id})"
+    pattern: "^/[a-zA-Z0-9/_{}.-]*$"
+  
+  - name: "method"
+    type: "string"
+    required: true
+    description: "HTTP method"
+    pattern: "^(GET|POST|PUT|DELETE|PATCH)$"
+  
+  - name: "function_name"
+    type: "string"
+    required: true
+    description: "Function name for the route handler"
+    pattern: "^[a-zA-Z_][a-zA-Z0-9_]*$"
+  
+  - name: "description"
+    type: "string"
+    required: true
+    description: "Brief description of the route functionality"
+  
+  - name: "request_model"
+    type: "string"
+    required: false
+    description: "Pydantic model name for request body"
+    default: ""
+  
+  - name: "response_model"
+    type: "string"
+    required: false
+    description: "Pydantic model name for response"
+    default: "dict"
+
+output:
+  type: "file"
+  pattern: "routes/{{ function_name }}.py"
+  location: "src/"
+
+validation:
+  - "python -m py_compile {{ output_file }}"
+  - "ruff check {{ output_file }}"
+
+template: |
+  from fastapi import APIRouter, HTTPException
+  {% if request_model %}from pydantic import BaseModel{% endif %}
+  
+  router = APIRouter()
+  
+  {% if request_model %}
+  # TODO: Define {{ request_model }} model
+  {% endif %}
+  
+  @router.{{ method.lower() }}("{{ route_path }}")
+  async def {{ function_name }}({% if request_model %}request: {{ request_model }}{% endif %}) -> {{ response_model }}:
+      """{{ description }}
+      
+      {% if request_model %}Args:
+          request: {{ request_model }} - Request payload
+      {% endif %}
+      
+      Returns:
+          {{ response_model }}: Response data
+      """
+      # TODO: Implement {{ function_name }} logic
+      return {"message": "{{ description }}"}

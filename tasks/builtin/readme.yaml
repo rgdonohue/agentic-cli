@@ -1,0 +1,115 @@
+# README Generator
+name: "readme"
+version: "1.0.0"
+description: "Generate a comprehensive README.md file for a project"
+
+inputs:
+  - name: "project_name"
+    type: "string"
+    required: true
+    description: "Name of the project"
+  
+  - name: "description"
+    type: "string"
+    required: true
+    description: "Brief description of what the project does"
+  
+  - name: "author"
+    type: "string"
+    required: false
+    description: "Project author name"
+    default: "Project Author"
+  
+  - name: "license"
+    type: "string"
+    required: false
+    description: "Project license"
+    default: "MIT"
+  
+  - name: "python_version"
+    type: "string"
+    required: false
+    description: "Required Python version"
+    default: "3.11+"
+  
+  - name: "features"
+    type: "array"
+    required: false
+    description: "List of key features"
+    default: []
+
+output:
+  type: "file"
+  pattern: "README.md"
+  location: ""
+
+validation: []
+
+template: |
+  # {{ project_name }}
+
+  {{ description }}
+
+  [![License: {{ license }}](https://img.shields.io/badge/License-{{ license }}-yellow.svg)](https://opensource.org/licenses/{{ license }})
+  [![Python {{ python_version }}](https://img.shields.io/badge/python-{{ python_version }}-blue.svg)](https://www.python.org/downloads/)
+
+  ## Features
+
+  {% if features %}{% for feature in features %}- {{ feature }}
+  {% endfor %}{% else %}- Feature 1: Description
+  - Feature 2: Description
+  - Feature 3: Description{% endif %}
+
+  ## Installation
+
+  ```bash
+  # Clone the repository
+  git clone https://github.com/{{ author }}/{{ project_name }}.git
+  cd {{ project_name }}
+
+  # Install dependencies
+  pip install -r requirements.txt
+  ```
+
+  ## Usage
+
+  ```python
+  # TODO: Add usage examples
+  from {{ project_name }} import main
+
+  # Example usage
+  main()
+  ```
+
+  ## Development
+
+  ```bash
+  # Install development dependencies
+  pip install -e ".[dev]"
+
+  # Run tests
+  pytest
+
+  # Run linting
+  ruff check .
+  ```
+
+  ## Contributing
+
+  1. Fork the repository
+  2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+  3. Commit your changes (`git commit -m 'Add amazing feature'`)
+  4. Push to the branch (`git push origin feature/amazing-feature`)
+  5. Open a Pull Request
+
+  ## License
+
+  This project is licensed under the {{ license }} License - see the [LICENSE](LICENSE) file for details.
+
+  ## Author
+
+  **{{ author }}**
+
+  ---
+
+  *Generated with [Agentic CLI](https://github.com/agentic-cli/agentic-cli)*

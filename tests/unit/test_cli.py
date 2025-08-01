@@ -1,9 +1,7 @@
 """Unit tests for CLI framework - PoC 1."""
 
 from pathlib import Path
-from unittest.mock import Mock, patch
 
-import pytest
 from click.testing import CliRunner
 
 from agentic.cli import main
@@ -24,7 +22,7 @@ class TestCLIFramework:
         assert "apply" in result.output
         assert "config" in result.output
 
-    def test_cli_init_creates_config_file(self, temp_dir: Path) -> None:
+    def test_cli_init_creates_config_file(self) -> None:
         """Test that init command creates .agentic/config.yaml with defaults."""
         runner = CliRunner()
         
@@ -42,7 +40,7 @@ class TestCLIFramework:
             assert "llm_provider:" in config_content
             assert "sandbox_enabled: true" in config_content
 
-    def test_cli_init_with_template_option(self, temp_dir: Path) -> None:
+    def test_cli_init_with_template_option(self) -> None:
         """Test that init command accepts template parameter."""
         runner = CliRunner()
         
@@ -60,7 +58,7 @@ class TestCLIFramework:
         assert result.exit_code != 0
         assert "Missing argument" in result.output or "Usage:" in result.output
 
-    def test_cli_generate_accepts_task_description(self, temp_dir: Path) -> None:
+    def test_cli_generate_accepts_task_description(self) -> None:
         """Test that generate command accepts task description."""
         runner = CliRunner()
         
@@ -75,7 +73,7 @@ class TestCLIFramework:
             # (May fail for other reasons like missing LLM config, but that's OK)
             assert "Missing argument" not in result.output
 
-    def test_cli_config_get_returns_current_values(self, temp_dir: Path) -> None:
+    def test_cli_config_get_returns_current_values(self) -> None:
         """Test that config get returns configured values or defaults."""
         runner = CliRunner()
         
@@ -89,7 +87,7 @@ class TestCLIFramework:
             assert result.exit_code == 0
             assert "true" in result.output.lower()
 
-    def test_cli_config_set_updates_values(self, temp_dir: Path) -> None:
+    def test_cli_config_set_updates_values(self) -> None:
         """Test that config set updates configuration values."""
         runner = CliRunner()
         
